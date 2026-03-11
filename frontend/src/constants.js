@@ -1,13 +1,10 @@
 // =============================================
 // Frontend Constants
 // =============================================
-
 // Backend API base URL
-export const API_BASE_URL = "/api";
-
+export const API_BASE_URL = "https://house-rent-management-system-1.onrender.com/api";
 // Backend server URL (for static assets like uploaded images)
-export const SERVER_URL = "";
-
+export const SERVER_URL = "https://house-rent-management-system-1.onrender.com";
 // App name
 export const APP_NAME = "RentEase";
 
