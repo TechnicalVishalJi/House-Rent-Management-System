@@ -4,7 +4,8 @@
  */
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-require("dotenv").config({ path: ".env" });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 
 const ADMIN = {
   name: "Admin User",
