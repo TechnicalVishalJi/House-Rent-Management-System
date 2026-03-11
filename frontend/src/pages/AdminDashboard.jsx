@@ -12,14 +12,7 @@ import {
 } from "react-bootstrap";
 import api from "../api/axios";
 import { toast } from "react-toastify";
-
-const statusColor = {
-  pending: "#f59e0b",
-  approved: "#10b981",
-  rejected: "#ef4444",
-  confirmed: "#10b981",
-  cancelled: "#ef4444",
-};
+import { STATUS_COLORS } from "../constants";
 
 const AdminDashboard = () => {
   const [properties, setProperties] = useState([]);
@@ -246,7 +239,7 @@ const AdminDashboard = () => {
                         <Badge
                           bg="none"
                           style={{
-                            background: statusColor[p.status] || "#64748b",
+                            background: STATUS_COLORS[p.status] || "#64748b",
                             fontSize: "0.65rem",
                             padding: "3px 8px",
                             borderRadius: "5px",
@@ -368,7 +361,8 @@ const AdminDashboard = () => {
                             <Badge
                               bg="none"
                               style={{
-                                background: statusColor[b.status] || "#64748b",
+                                background:
+                                  STATUS_COLORS[b.status] || "#64748b",
                                 padding: "4px 10px",
                                 borderRadius: "6px",
                                 textTransform: "capitalize",

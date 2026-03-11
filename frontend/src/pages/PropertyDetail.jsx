@@ -14,6 +14,7 @@ import {
 import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import { SERVER_URL } from "../constants";
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -88,7 +89,7 @@ const PropertyDetail = () => {
             <img
               src={
                 property.images?.length > 0
-                  ? `http://localhost:5000${property.images[0]}`
+                  ? `${SERVER_URL}${property.images[0]}`
                   : placeholder
               }
               alt={property.title}
@@ -104,7 +105,7 @@ const PropertyDetail = () => {
                 {property.images.slice(1, 4).map((img, i) => (
                   <Col xs={4} key={i}>
                     <img
-                      src={`http://localhost:5000${img}`}
+                      src={`${SERVER_URL}${img}`}
                       alt=""
                       style={{
                         width: "100%",

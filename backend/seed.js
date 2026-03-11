@@ -4,7 +4,7 @@
  */
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-require("dotenv").config({ path: "./backend/.env" });
+require("dotenv").config({ path: ".env" });
 
 const ADMIN = {
   name: "Admin User",
@@ -19,17 +19,14 @@ async function seed() {
   console.log("Connected to MongoDB");
 
   // Avoid duplicate
-  const User = require("./backend/models/User");
+  const User = require("./models/User");
   const existing = await User.findOne({ email: ADMIN.email });
   if (existing) {
     console.log("Admin already exists. Skipping...");
     process.exit(0);
   }
 
-  const salt = await bcrypt.genSalt(10);
-  const hashed = await bcrypt.hash(ADMIN.password, salt);
-
-  await User.create({ ...ADMIN, password: hashed });
+  await User.create(ADMIN);
   console.log(`
 ✅ Admin user created!
    Email:    ${ADMIN.email}

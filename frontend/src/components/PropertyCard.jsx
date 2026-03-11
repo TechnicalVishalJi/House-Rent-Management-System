@@ -1,5 +1,6 @@
 import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { SERVER_URL } from "../constants";
 
 const PropertyCard = ({ property }) => {
   const placeholder =
@@ -10,7 +11,7 @@ const PropertyCard = ({ property }) => {
       <img
         src={
           property.images && property.images.length > 0
-            ? `http://localhost:5000${property.images[0]}`
+            ? `${SERVER_URL}${property.images[0]}`
             : placeholder
         }
         alt={property.title}

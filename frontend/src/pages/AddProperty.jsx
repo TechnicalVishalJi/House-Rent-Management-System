@@ -11,20 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import { toast } from "react-toastify";
-
-const propertyTypes = ["apartment", "house", "studio", "villa", "room"];
-const amenityOptions = [
-  "WiFi",
-  "Parking",
-  "AC",
-  "Gym",
-  "Pool",
-  "Laundry",
-  "Pet Friendly",
-  "Balcony",
-  "Furnished",
-  "CCTV",
-];
+import { PROPERTY_TYPES, AMENITY_OPTIONS } from "../constants";
 
 const AddProperty = () => {
   const navigate = useNavigate();
@@ -148,7 +135,7 @@ const AddProperty = () => {
                   onChange={handleChange}
                   required
                 >
-                  {propertyTypes.map((t) => (
+                  {PROPERTY_TYPES.map((t) => (
                     <option key={t} value={t}>
                       {t.charAt(0).toUpperCase() + t.slice(1)}
                     </option>
@@ -241,7 +228,7 @@ const AddProperty = () => {
               Amenities
             </h5>
             <div className="d-flex flex-wrap gap-2 mb-4">
-              {amenityOptions.map((a) => (
+              {AMENITY_OPTIONS.map((a) => (
                 <Button
                   key={a}
                   type="button"

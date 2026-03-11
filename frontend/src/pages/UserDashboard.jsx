@@ -14,15 +14,7 @@ import { Link } from "react-router-dom";
 import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
-
-const statusColor = {
-  pending: "#f59e0b",
-  approved: "#10b981",
-  rejected: "#ef4444",
-  confirmed: "#10b981",
-  cancelled: "#ef4444",
-  completed: "#2563eb",
-};
+import { STATUS_COLORS } from "../constants";
 
 const UserDashboard = () => {
   const { user } = useAuth();
@@ -228,7 +220,7 @@ const UserDashboard = () => {
                           <Badge
                             bg="none"
                             style={{
-                              background: statusColor[p.status] || "#64748b",
+                              background: STATUS_COLORS[p.status] || "#64748b",
                               fontSize: "0.7rem",
                               padding: "4px 10px",
                               borderRadius: "6px",
@@ -305,7 +297,7 @@ const UserDashboard = () => {
                           <Badge
                             bg="none"
                             style={{
-                              background: statusColor[b.status] || "#64748b",
+                              background: STATUS_COLORS[b.status] || "#64748b",
                               fontSize: "0.7rem",
                               padding: "4px 10px",
                               borderRadius: "6px",

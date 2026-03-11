@@ -3,8 +3,7 @@ import { Container, Row, Col, Spinner, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from "../api/axios";
 import PropertyCard from "../components/PropertyCard";
-
-const propertyTypes = ["apartment", "house", "studio", "villa", "room"];
+import { PROPERTY_TYPES } from "../constants";
 
 const Properties = () => {
   const [properties, setProperties] = useState([]);
@@ -108,7 +107,7 @@ const Properties = () => {
                   }
                 >
                   <option value="">All Types</option>
-                  {propertyTypes.map((t) => (
+                  {PROPERTY_TYPES.map((t) => (
                     <option key={t} value={t}>
                       {t.charAt(0).toUpperCase() + t.slice(1)}
                     </option>
